@@ -1,0 +1,24 @@
+{% extends "base.html" %} 
+
+{% block title %}Stocks{% endblock %} 
+
+{% block content %} 
+
+    <form method="POST" >
+        <h3 align="center">Search for a Ticker</h3>
+        <div class="form-group">
+            <label for="email">Ticker</label>
+            <input type="text" class="form-control" name="ticker" id="ticker" name="ticker" placeholder="Enter Ticker">
+            <button type="submit" class="btn btn-primary">Login</button>
+        </div> 
+    </form>
+
+    <h1 align="center">{{ stock.info['longName'] }} - {{ stock.info['symbol'] }}</h1>
+    <ul class="list-group list-group-flush" id="stock"> 
+        {% for key in stock.info %}           
+        <li class="list-group-item"><h5>{{ key }}:</h5> {{ stock.info[key] }}</li>
+        {% endfor %}
+    </ul>
+    
+        
+{% endblock %}
